@@ -51,7 +51,7 @@ data = [
 def write_to_hbase_partition(partition):
     connection = happybase.Connection('master')
     connection.open()
-    table = connection.table('weather')  # Must exist with column family 'cf'
+    table = connection.table('weather_metrics')  # Must exist with column family 'cf'
     for row in partition:
         row_key, column, value = row
         table.put(row_key, {column: value})
